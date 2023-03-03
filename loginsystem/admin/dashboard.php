@@ -14,13 +14,15 @@ if (strlen($_SESSION['adminid']==0)) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Admin Dashboard | Registration and Login System </title>
+        <title>Admin | Dashboard </title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
    <?php include_once('includes/navbar.php');?>
+
+   
         <div id="layoutSidenav">
           <?php include_once('includes/sidebar.php');?>
             <div id="layoutSidenav_content">
@@ -31,10 +33,10 @@ if (strlen($_SESSION['adminid']==0)) {
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                         <div class="row">
-<?php
-$query=mysqli_query($con,"select id from users");
-$totalusers=mysqli_num_rows($query);
-?>
+                                    <?php
+                                    $query=mysqli_query($con,"select id from users");
+                                    $totalusers=mysqli_num_rows($query);
+                                    ?>
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -46,10 +48,10 @@ $totalusers=mysqli_num_rows($query);
                                     </div>
                                 </div>
                             </div>
-<?php
-$query1=mysqli_query($con,"select id from users where date(posting_date)=CURRENT_DATE()-1");
-$yesterdayregusers=mysqli_num_rows($query1);
-?>
+                                        <?php
+                                        $query1=mysqli_query($con,"select id from users where date(posting_date)=CURRENT_DATE()-1");
+                                        $yesterdayregusers=mysqli_num_rows($query1);
+                                        ?>
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
@@ -62,10 +64,10 @@ $yesterdayregusers=mysqli_num_rows($query1);
                                 </div>
                             </div>
 
-<?php
-$query2=mysqli_query($con,"select id from users where date(posting_date)>=now() - INTERVAL 7 day");
-$last7daysregusers=mysqli_num_rows($query2);
-?>
+                        <?php
+                        $query2=mysqli_query($con,"select id from users where date(posting_date)>=now() - INTERVAL 7 day");
+                        $last7daysregusers=mysqli_num_rows($query2);
+                        ?>
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
@@ -78,10 +80,10 @@ $last7daysregusers=mysqli_num_rows($query2);
                                 </div>
                             </div>
 
-<?php
-$query3=mysqli_query($con,"select id from users where date(posting_date)>=now() - INTERVAL 30 day");
-$last30daysregusers=mysqli_num_rows($query3);
-?>
+                            <?php
+                            $query3=mysqli_query($con,"select id from users where date(posting_date)>=now() - INTERVAL 30 day");
+                            $last30daysregusers=mysqli_num_rows($query3);
+                            ?>
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">

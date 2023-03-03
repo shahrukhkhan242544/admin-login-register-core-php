@@ -19,7 +19,7 @@ How to run the User Registration & Login and User Management System With admin p
 Credential for admin panel :
 
 Username: admin
-Password: Test@12345
+Password: 123456
 
 Credential for user panel : 
 
